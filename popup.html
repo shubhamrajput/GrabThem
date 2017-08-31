@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html ng-app="app">
+
+<head>
+    <link rel="stylesheet" href="mdl.min.css">
+    <script src="angular.min.js"></script>
+    <script src="mdl.min.js"></script>
+    <script src="script.js"></script>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+        }
+        
+        table a {
+            text-decoration: none;
+        }
+        
+        body {
+            width: 350px;
+            overflow: scroll;
+        }
+        
+        img {
+            width: 20px;
+        }
+        
+        table td {
+            font-weight: bold;
+            white-space: -o-pre-wrap;
+            word-wrap: break-word;
+            white-space: pre-wrap;
+            white-space: -moz-pre-wrap;
+            white-space: -pre-wrap;
+        }
+        
+        table {
+            margin-top: 10px;
+            margin-left: auto;
+            margin-right: auto;
+            white-space: normal;
+            table-layout: fixed;
+            width: 350px;
+        }
+    </style>
+
+</head>
+
+<body ng-controller="MyCtrl">
+    <div class="mdl-tooltip" data-mdl-for="extractbtn">
+        Extract url(s)
+    </div>
+
+    <div class="mdl-tooltip" data-mdl-for="savebtn">
+        Save all url(s)
+    </div>
+
+    <div class="mdl-tooltip" data-mdl-for="getbtn">
+        Show saved url(s)
+    </div>
+
+    <div class="mdl-tooltip" data-mdl-for="clearbtn">
+        Clear all url(s)
+    </div>
+
+    <div class="mdl-tooltip" data-mdl-for="openbtn">
+        Open all saved url(s)
+    </div>
+
+    <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" id="extractbtn" ng-click="extract()">
+        <i class="material-icons">file_download</i></button>
+
+    <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" id="savebtn" ng-click="saveURLS()">
+        <i class="material-icons">save</i></button>
+
+    <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" id="getbtn" ng-click="getURLS()">
+        <i class="material-icons">visibility</i></button>
+
+    <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" id="clearbtn" ng-click="clear()"><i class="material-icons">delete_forever</i></button>
+
+    <button ng-click="openUrls()" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" id="openbtn">Open</button>
+
+    <table ng-show="array.length>0 && show_extract_table==1" class="mdl-data-table mdl-js-data-table  mdl-shadow--2dp">
+        <thead>
+            <tr>
+
+                <th class="mdl-data-table__cell--non-numeric">Title(s)</th>
+                <th class="mdl-data-table__cell--non-numeric">Url(s)</th>
+            </tr>
+        </thead>
+
+        <tbody ng-repeat="item in array track by $index">
+            <tr>
+
+                <td class="mdl-data-table__cell--non-numeric"><img ng-src="{{item.favIconUrl}}">&nbsp;{{item.title}}</td>
+                <td class="mdl-data-table__cell--non-numeric"><a ng-href="{{item.url}}">{{item.url}}</a></td>
+            </tr>
+
+        </tbody>
+    </table>
+
+    <table ng-show="URLS.length>0 && show_display_table==1" class="mdl-data-table mdl-js-data-table  mdl-shadow--2dp" id="test">
+
+        <tbody ng-repeat="i in URLS track by $index">
+            <tr>
+
+                <td class="mdl-data-table__cell--non-numeric"><a ng-href="{{i}}">{{i}}</a></td>
+
+            </tr>
+
+        </tbody>
+    </table>
+
+</body>
+
+</html>
