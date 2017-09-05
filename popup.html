@@ -94,7 +94,7 @@
             <tr>
 
                 <td class="mdl-data-table__cell--non-numeric"><img ng-src="{{item.favIconUrl}}">&nbsp;{{item.title}}</td>
-                <td class="mdl-data-table__cell--non-numeric"><a ng-href="{{item.url}}">{{item.url}}</a></td>
+                <td class="mdl-data-table__cell--non-numeric"><a href="{{item.url}}" target="_blank">{{item.url}}</a></td>
             </tr>
 
         </tbody>
@@ -105,7 +105,7 @@
         <tbody ng-repeat="i in URLS track by $index">
             <tr>
 
-                <td class="mdl-data-table__cell--non-numeric"><a ng-href="{{i}}">{{i}}</a></td>
+                <td class="mdl-data-table__cell--non-numeric"><a href="{{i}}" target="_blank">{{i}}</a></td>
 
             </tr>
 
